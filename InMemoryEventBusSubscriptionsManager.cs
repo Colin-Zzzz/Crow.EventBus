@@ -9,12 +9,10 @@ namespace Crow.EventBus
     public class InMemoryEventBusSubscriptionsManager : IEventBusSubscriptionsManager
     {
         private readonly Dictionary<string,List<Type>> _handles;
-        private readonly List<Type> _eventTypes;
         public event EventHandler<string> OnEventRemoved=default!;
         public InMemoryEventBusSubscriptionsManager()
         {
             _handles=new Dictionary<string, List<Type>>();
-            _eventTypes=new List<Type>();   
         }
         public void AddSubscription(string eventName, Type handleType)
         {
